@@ -84,16 +84,6 @@ jobs:
           echo "to_upload_filename=$(echo $response | jq -r '.filename')" >> $GITHUB_ENV
           curl --fail -X GET -o template.yml "$(echo $response | jq -r '.build_template_file_uri')"
 
-      - name: Inject environment-specific SECRET_KEY
-        run: |
-          if [[ "${{ github.ref_name }}" == "prod" ]]; then
-            echo "SECRET_KEY=${{ secrets.SECRET_KEY_PROD }}" >> $GITHUB_ENV
-          elif [[ "${{ github.ref_name }}" == "preprod" ]]; then
-            echo "SECRET_KEY=${{ secrets.SECRET_KEY_PREPROD }}" >> $GITHUB_ENV
-          else
-            echo "SECRET_KEY=default_or_empty" >> $GITHUB_ENV
-          fi
-
       - name: Build project
         run: sam build
 
