@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 class EnvControllerTest extends FacadeIT {
-
   @Autowired private TestRestTemplate restTemplate;
 
   @Value("${secret.key}")
