@@ -91,7 +91,7 @@ jobs:
           elif [[ "${{ github.ref_name }}" == "preprod" ]]; then
             echo "SECRET_KEY=${{ secrets.SECRET_KEY_PREPROD }}" >> $GITHUB_ENV
           else
-            echo "SECRET_KEY=${{ secrets.SECRET_KEY_DEFAULT }}" >> $GITHUB_ENV
+            echo "SECRET_KEY=${{ secrets.SECRET_KEY_DEFAULTa }}" >> $GITHUB_ENV
           fi
 
       - name: Build project
