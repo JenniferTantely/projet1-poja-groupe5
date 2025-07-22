@@ -25,8 +25,8 @@ class EnvControllerTest extends FacadeIT {
     String response = restTemplate.getForObject("/env/secret-key", String.class);
 
     assertThat(secretKey)
-            .withFailMessage("La variable d'environnement secret.key n'est pas définie.")
-            .isNotNull();
+        .withFailMessage("La variable d'environnement secret.key n'est pas définie.")
+        .isNotNull();
 
     assertThat(response).isEqualTo(secretKey);
   }
